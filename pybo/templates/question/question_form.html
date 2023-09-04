@@ -28,7 +28,93 @@
             <textarea class="form-control" name="content"
                       id="content" rows="10">{{ form.content.data or '' }}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">저장하기</button>
+
+   <style>
+    .select-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .form-control {
+        margin-right: 10px;
+    }
+</style>
+
+<div class="select-container">
+    <select class="form-control" name="subject" id="1">
+        <label for="1">야채</label>
+        <option value="">상추</option>
+        <option value="Option 1">양파</option>
+        <option value="Option 2">당근</option>
+        <option value="Option 3">배추</option>
+    </select>
+    <div class="mb-3">
+            <label for="content">중량</label>
+            <input type="text" id="q" name="text-input" placeholder="텍스트를 입력하세요">
+    </div>
+
+    <select class="form-control" name="subject" id="2">
+        <option value="">육류</option>
+        <option value="Option 1">돼지 고기</option>
+        <option value="Option 2">소고기</option>
+        <option value="Option 3">양고기</option>
+    </select>
+    <div class="mb-3">
+            <label for="content">중량</label>
+            <input type="text" id="w" name="text-input" placeholder="텍스트를 입력하세요">
+    </div>
+    <select class="form-control" name="subject" id="3">
+        <option value="">소스</option>
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+    </select>
+<div class="mb-3">
+            <label for="content">중량</label>
+            <input type="text" id="e" name="text-input" placeholder="텍스트를 입력하세요">
+    </div>
+</div>
+
+    <div class="select-container">
+    <select class="form-control" name="subject" id="4">
+        <label for="1">야채</label>
+        <option value="">상추</option>
+        <option value="Option 1">양파</option>
+        <option value="Option 2">당근</option>
+        <option value="Option 3">배추</option>
+    </select>
+    <div class="mb-3">
+            <label for="content">중량</label>
+            <input type="text" id="q1" name="text-input" placeholder="텍스트를 입력하세요">
+    </div>
+
+    <select class="form-control" name="subject" id="5">
+        <option value="">육류</option>
+        <option value="Option 1">돼지 고기</option>
+        <option value="Option 2">소고기</option>
+        <option value="Option 3">양고기</option>
+    </select>
+    <div class="mb-3">
+            <label for="content">중량</label>
+            <input type="text" id="w2" name="text-input" placeholder="텍스트를 입력하세요">
+    </div>
+    <select class="form-control" name="subject" id="6">
+        <option value="">소스</option>
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+    </select>
+
+    <div class="mb-3">
+            <label for="content">중량</label>
+            <input type="text" id="e1" name="text-input" placeholder="텍스트를 입력하세요">
+    </div>
+</div>
+
+
+
+
+       <button type="submit" class="btn btn-primary">저장하기</button>
     </form>
 </div>
 {% endblock %}
