@@ -35,11 +35,13 @@
                 <a href="javascript:void(0)" class="delete btn btn-sm btn-outline-secondary"
                data-uri="{{ url_for('question.delete', question_id=question.id) }}">삭제</a>
 
-<!--                <div>-->
-<!--                {{ question.create_date|datetime}}</div>-->
-<!--                <div>-->
-<!--                {{ question.create_date|datetime}}</div>-->
+                <div>
+                {{ question.create_date|datetime}}</div>
                 </div>
+
+             <div class="badge bg-light text-dark p-2 text-start">
+                    <div class="mb-2">{{ question.user.username }}</div>
+            <div>
             {% endif %}
         </div>
         </div>

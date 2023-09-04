@@ -43,3 +43,7 @@ class Food(db.Model):
     name = db.Column(db.String(150), unique=True, nullable=False)
     price = db.Column(db.String(120), nullable=False)
     category = db.Column(db.String(120), nullable=False)
+
+class Image(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(255), unique=True)

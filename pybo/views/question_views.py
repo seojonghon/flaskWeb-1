@@ -5,9 +5,8 @@ from werkzeug.utils import redirect
 
 from pybo import db
 from pybo.forms import QuestionForm, AnswerForm, FoodForm
-from pybo.models import Question, Answer, User, Food
+from pybo.models import Question, Answer, User, Food, Image
 from pybo.views.auth_views import login_required
-
 
 bp = Blueprint('question', __name__, url_prefix='/question')
 
@@ -93,3 +92,34 @@ def vote(question_id):
         db.session.commit()
     return redirect(url_for('question.detail', question_id=question_id))
 
+
+from werkzeug.utils import secure_filename
+
+
+@bp.route('/upload', methods=['POST'])
+def upload_file():
+    if 'file' not in request.files:
+        return 'No file part'
+    file = request.files['file']
+
+    # If the user does not select a file, the browser might
+    # submit an empty file without a filename.
+    if file.filename == '':
+        return 'No selected file'
+
+    filename = secure_filename(file.filename)
+
+    # Save the image to disk.
+    filepath = os.path.join("c:\\temp\\",filename)
+    file.save(filepath)
+
+    # Save the image path to database.
+    new_image = Image(filename=filepath)
+    db.session.add(new_image)
+    try:
+        db.session.commit()
+    except Exception as e:
+        print(e)  # Here you want to add some logging for production use.
+        return "There was an issue uploading your image."
+
+    return redirect(url_for('question._list'))

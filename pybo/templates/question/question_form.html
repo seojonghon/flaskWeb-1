@@ -2,7 +2,8 @@
 {% block content %}
 <div class="container">
     <h5 class="my-3 border-bottom pb-2">질문등록</h5>
-    <form method="post" class="my-3">
+    <form method="post" class="my-3"
+        action="/question/upload" enctype="multipart/form-data">
         {{ form.csrf_token }}
         <!-- 오류표시 Start -->
         {% if form.errors %}
@@ -112,6 +113,11 @@
 </div>
 
 
+    <h1>이미지 업로드</h1>
+<!--    <form method="POST" action="/upload" enctype="multipart/form-data">-->
+        <input type="file" name="file" accept=".jpg, .jpeg, .png">
+<!--        <input type="submit" value="업로드">-->
+<!--    </form>-->
 
 
        <button type="submit" class="btn btn-primary">저장하기</button>
