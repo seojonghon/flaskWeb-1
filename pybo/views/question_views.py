@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, request, url_for, g, flash
 from werkzeug.utils import redirect
 
 from pybo import db
-from pybo.forms import QuestionForm, AnswerForm, FoodForm
+from pybo.forms import QuestionForm, AnswerForm, FoodForm, ImageForm
 from pybo.models import Question, Answer, User, Food, Image
 from pybo.views.auth_views import login_required
 
@@ -36,7 +36,11 @@ def detail(question_id):
     form = AnswerForm()
     question = Question.query.get_or_404(question_id)
     return render_template('question/question_detail.html', question=question, form=form)
-
+# @bp.route('/detail/<int:image_id>/')
+# def itail(image_id):
+#     form = ImageForm()
+#     image = Image.query.get_or_404(image_id)
+#     return render_template('question/question_detail.html', image=image, form=form)
 
 @bp.route('/create/', methods=('GET', 'POST'))
 @login_required
@@ -110,7 +114,7 @@ def upload_file():
     filename = secure_filename(file.filename)
 
     # Save the image to disk.
-    filepath = os.path.join("c:\\temp\\",filename)
+    filepath = os.path.join("C:/projects/myproject/pybo/uploads",filename)
     file.save(filepath)
 
     # Save the image path to database.

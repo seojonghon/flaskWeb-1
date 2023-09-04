@@ -24,4 +24,8 @@ class UserLoginForm(FlaskForm):
 
 class FoodForm(FlaskForm):
     price = StringField('가격', validators=[DataRequired('가격은 필수입력 항목입니다.')])
-    category = StringField('가격', validators=[DataRequired('가격은 필수입력 항목입니다.')])
+    category = StringField('품목', validators=[DataRequired('가격은 필수입력 항목입니다.')])
+    
+class ImageForm(FlaskForm):
+    filename = StringField('파일 이름', validators=[DataRequired('파일 이름은 필수입력 항목입니다.')])
+    
